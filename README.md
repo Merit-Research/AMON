@@ -1,7 +1,8 @@
 All-packet MONitor
 ------------------
 
-*Description*
+Description
+-------------
 AMON is a software tool for processing multi-10Gbps streams of network data.
 It is based on PF-RING (zero-copy).
 
