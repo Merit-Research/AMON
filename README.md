@@ -1,5 +1,5 @@
-All-packet MONitor
-------------------
+All-packet MONitor --  Monitoring multi-10Gbps network streams
+------------------------------------------------------
 
 Description
 -------------
