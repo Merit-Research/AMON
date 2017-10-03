@@ -6,6 +6,7 @@
  *
  * Authors  - Michalis Kallitsis <mgkallit@merit.edu>
  *            Stilian Stoev <sstoev@umich.edu>
+ *            Rajat Tandon <rajattan@usc.edu>
  *
  * Licensed under the GNU Lesser General Public License, version 3. You may
  * obtain a copy of the license at https://www.gnu.org/licenses/gpl-3.0.html
