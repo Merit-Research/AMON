@@ -27,6 +27,10 @@ Issue the following command on the local machine to establish an SSH tunnel to t
 
 (Replace “username” with your username)
 
+## Copy the Python Bokeh Applications to your Bokeh server
+#
+
+rsync -avrz databrick_live_stream.py hostname.example.edu:~
 
 ## SSH into the bokeh VM.
 
@@ -34,7 +38,6 @@ Issue the following command on the local machine to establish an SSH tunnel to t
 
 	ssh username@hostname.example.edu
 
-## Copy the Python Bokeh Applications to your Bokeh server
 ### Example
 
 	username@bokeh:~$  git clone <placeholder>
