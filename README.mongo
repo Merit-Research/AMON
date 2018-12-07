@@ -5,3 +5,29 @@ http://mongoc.org/libmongoc/current/installing.html
 See also:
 
 https://github.com/mongodb/mongo-c-driver
+
+Initial configuration
+----------------------
+
+* Edit /etc/mongodb.conf to update dbpath as ‘dbPath: /data/mongodb’
+
+* mkdir /data/mongodb
+
+* chown mongodb:mongodb /data/mongodb/
+
+* IF needed, to enable remote connections to the DB, comment-out the following line in mongodb.conf
+
+bindIP: 127.0.0.1
+
+* Type "mongo" to get into the MongoDB interactive terminal.
+
+* Now, we can create the "amon" database and the "databrick" collection  as follows:
+
+** use amon # to switch to "amon" db; it doesn’t matter if it doesn’t exist. It will be created with the step below
+** db.createCollection( "databricks", {capped:true, size:100000000000}) # 100GB is the cap (adjust as needed)
+** db.databricks.createIndex({timestamp:1})
+
+* Auto-start Mongo DB on Reboot
+
+   systemctl enable mongod.service
+
