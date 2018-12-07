@@ -37,10 +37,10 @@ from bokeh.plotting import figure
 ###################################################################################################
 
 # Connect to MongoDB server
-mongo_host = 'mongo.example.edu' # This is the hostname that runs the MongoDB database -- WE ASSUME IT'S ALREADY CONFIGURED!
+mongo_host = 'localhost' # This is the hostname that runs the MongoDB database -- WE ASSUME IT'S ALREADY CONFIGURED!
 client = MongoClient(mongo_host, 27017)
 db = client.amon # This is the MongoDB database -- WE ASSUME IT'S ALREADY CONFIGURED!
-collection = db.databrick_collection # This is the Databricks collection -- WE ASSUME IT'S ALREADY CONFIGURED!
+collection = db.databricks # This is the Databricks collection -- WE ASSUME IT'S ALREADY CONFIGURED!
 
 ###################################################################################################
 
