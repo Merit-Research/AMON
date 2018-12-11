@@ -15,9 +15,13 @@ Initial configuration
 
 * chown mongodb:mongodb /data/mongodb/
 
-* IF needed, to enable remote connections to the DB, comment-out the following line in mongodb.conf
+* To enable remote connections to the DB, adjust the following line in /etc/mongodb.conf
 
 bindIP: 127.0.0.1
+
+E.g., the setting below will enable MongoDB to listen for connections on both localhost and the "WAN" interface (say, 10.0.0.10):
+
+bindIP: 127.0.0.1,10.0.0.10
 
 * Type "mongo" to get into the MongoDB interactive terminal.
 
