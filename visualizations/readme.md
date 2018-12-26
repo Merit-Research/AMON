@@ -1,8 +1,8 @@
 # Bokeh Dashboard Quickstart
 ### Authors: 
-Evan Pesch
-Michalis Kallitsis
-Stilian Stoev
+#### Evan Pesch
+#### Michalis Kallitsis
+#### Stilian Stoev
 
 
 ### 1. Install Bokeh (version 1.0.2) and other necessary libraries in a Linux VM (the instructions below were tested on an Ubuntu 18.04 server)
