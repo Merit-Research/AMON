@@ -19,7 +19,7 @@ Issue the following commands on the VM to install the necessary libraries:
 See instructions at https://bokeh.pydata.org/en/latest/docs/installation.html
 
 
-### 2. Set up SSH tunnel:
+### 2. Set up SSH tunnel
 
 Issue the following command on the local machine to establish an SSH tunnel to the remote host at port 5008:
 
@@ -39,11 +39,11 @@ Issue the following command on the local machine to ssh into your VM:
 Replace "username" and "hostname" with your username and the hostname of your VM.
 
 
-### 4. Copy the Application to your vM
+### 4. Copy the Repository to your VM
 
-Copy the bokeh-dashboard directory to your VM to run the Flask App
+Copy the AMON repository to your VM:
 
-    username@hostname:~$  git clone <placeholder>
+    username@hostname:~$  git clone https://github.com/Merit-Research/AMON.git
 
 
 ### 5. Edit dashboard.ini configuration file to match you MongoDB
@@ -63,8 +63,8 @@ example:
     COLLECTION_NAME = databricks
 
 
-### 6. Run the Flask application
+### 6. Run the Flask Visualization application
 
-Issue the following command on your VM to run the Flask application:
+On your VM, run the views.py file in the bokeh-dashboard directory:
 
-    python bokeh-dashboard/views.py
+    python AMON/visualizations/bokeh-dashboard/views.py
