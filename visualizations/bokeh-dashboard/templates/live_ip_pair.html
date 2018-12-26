@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block head %}
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-1.0.2.min.css"
+    rel="stylesheet" type="text/css">
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.2.min.css"
+    rel="stylesheet" type="text/css">
+
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-1.0.2.min.js"></script>
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.2.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Questrial|Montserrat:300,400,500,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="static/style.css">
+{% endblock %}
+
+{% block content %}
+
+<h1>Live IP Pair</h1>
+
+<div class="slidecontainer_ip_pair">
+    <form method="POST" action="/" id="form">
+        <p><b>Traffic Scale: </b><span id="scaleDemo"></span></p>
+        <input type="range" min="0" max="20000000" step="100000" value={{traffic_scale}} name="traffic_scale" class="slider" id="scaleRange" />
+    </form>
+</div>
+
+{% for plot in plots %}
+    {% for part in plot %}
+        {{part | safe}}
+    {% endfor %}
+{% endfor %}
+
+<script>
+var scaleslider = document.getElementById("scaleRange");
+var scaleoutput = document.getElementById("scaleDemo");
+scaleoutput.innerHTML = scaleslider.value;
+
+scaleslider.oninput = function() {
+    scaleoutput.innerHTML = this.value;
+}
+
+scaleslider.onchange = function () {
+  document.getElementById("form").submit();
+}
+
+</script>
+
+{% endblock %}
