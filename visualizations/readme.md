@@ -48,7 +48,7 @@ Copy the AMON repository to your VM:
 
 ### 5. Edit dashboard.ini configuration file to match you MongoDB
 
-In bokeh-dashboard/dashboard.ini, replace the MONGO_HOST, DATABASE_NAME, and COLLECTION NAME values with the names of the your VM (where MongoDB is stored), MongoDB database (that contains the collection where your databricks are stored), and MongoDB collection (where your databricks are stored):
+In AMON/visualizations/bokeh-dashboard/dashboard.ini, replace the MONGO_HOST, DATABASE_NAME, and COLLECTION NAME values with the names of the your VM (where MongoDB is stored), MongoDB database (that contains the collection where your databricks are stored), and MongoDB collection (where your databricks are stored):
 
     [LIVE_IP_PAIR]
     MONGO_HOST = vm_hostname

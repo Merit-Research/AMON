@@ -26,7 +26,7 @@ from bokeh.models.widgets import Div
 from configparser import ConfigParser
 
 config = ConfigParser()
-config.read('amon-clone/AMON/visualizations/bokeh-dashboard/dashboard.ini')
+config.read('AMON/visualizations/bokeh-dashboard/dashboard.ini')
 
 def create_source_live_ip(traffic_scale, databrick):
 
