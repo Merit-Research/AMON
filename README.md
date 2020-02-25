@@ -11,6 +11,17 @@ database) the following data output (for more details, see [1]):
 1. A 128x128 matrix (aka "databrick") that conveys information about the network's traffic *intensity* and *structure* 
 2. A 128x128 matrix that conveys information about the network heavy-hitters. These hitters are identified with the help of the MJRTY Boyer-Moore algorithm [2].
 
+Prerequisites
+-------------
+
+The following packages need to be installed:
+  * libbson-1.0
+  * libbson-dev
+  * numactl
+  * libnuma-dev
+  * libmongoc-1.0-0
+  * libmongoc-dev
+
 Installation
 -------------
 AMON is currenly supported on Ubuntu and CentoOS systems. So, the first step, is to install one of these on the server that will be receiving the traffic :)
