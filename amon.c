@@ -265,14 +265,14 @@ export_to_db (unsigned int *databrick_r, /*unsigned int *major_flags_r,*/
   char key[10];
   int num;
   bson_t *child_utf8;
-  char tooltip_buffer[40];
+  char tooltip_buffer[52];
   flow_t hitter = {0,0,0,0};
   u_int32_t hitter_src = 0;
   u_int32_t hitter_dst = 0;
   struct in_addr in_src;
   struct in_addr in_dst;
-  char hitter_src_str[20];
-  char hitter_dst_str[20];
+  char hitter_src_str[26];
+  char hitter_dst_str[26];
 
   mongoc_init ();
   client = mongoc_client_new (parms.mongo_db_client);	/* sending to database */
@@ -283,6 +283,7 @@ export_to_db (unsigned int *databrick_r, /*unsigned int *major_flags_r,*/
 	       "mongoc_client_get_collection FAILED - skipping and will try again later.\n");
       return;
     }
+
 
   doc = bson_new ();
   child = bson_new ();
@@ -304,6 +305,7 @@ export_to_db (unsigned int *databrick_r, /*unsigned int *major_flags_r,*/
   bson_append_array_end (doc, child);
   child_utf8 = bson_new ();
   bson_append_array_begin (doc, "hitters", -1, child_utf8);
+
 
   for (int i = 0; i < BRICK_DIMENSION * BRICK_DIMENSION; i++)
     {
@@ -328,9 +330,7 @@ export_to_db (unsigned int *databrick_r, /*unsigned int *major_flags_r,*/
 	      fprintf (stderr, "Buffer Overflow. FATAL ERROR.\n");
 	      exit (-1);
 	    }
-	  num =
-	    sprintf (tooltip_buffer, "[%s, %s]", hitter_src_str,
-		     hitter_dst_str);
+	  num =  sprintf (tooltip_buffer, "[%s, %s]", hitter_src_str, hitter_dst_str);
 	  if (num >= 52 - 1 || num < 0)
 	    {			// 52 is the length of our char tooltip_buffer
 	      fprintf (stderr, "Buffer Overflow. FATAL ERROR.\n");
@@ -342,7 +342,7 @@ export_to_db (unsigned int *databrick_r, /*unsigned int *major_flags_r,*/
 	bson_append_utf8 (child_utf8, key, -1, "", -1);
     }
   bson_append_array_end (doc, child_utf8);
-
+  
   if (!mongoc_collection_insert
       (collection, MONGOC_INSERT_NONE, doc, NULL, &error))
     {
